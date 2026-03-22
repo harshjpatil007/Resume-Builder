@@ -1,0 +1,103 @@
+:root {
+    --primary: #2563eb;
+    --bg-light: #f8fafc;
+    --border: #e2e8f0;
+    --text-dark: #1e293b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--text-dark); height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+
+/* UI Components */
+.app-header { background: #fff; padding: 1rem 2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 800; font-size: 1.5rem; color: #000; }
+.logo span { color: var(--primary); }
+
+.app-container { display: flex; flex: 1; overflow: hidden; }
+
+/* Editor Side */
+.editor-pane { width: 450px; background: #fff; border-right: 1px solid var(--border); overflow-y: auto; padding: 1.5rem; }
+.form-section { margin-bottom: 2rem; }
+.form-section h3 { font-size: 0.9rem; text-transform: uppercase; color: var(--primary); margin-bottom: 1rem; letter-spacing: 0.5px; }
+
+input, textarea, select { width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; margin-bottom: 0.75rem; font-family: inherit; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+.chip-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+.skill-chip { background: #eff6ff; color: var(--primary); padding: 0.3rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; cursor: pointer; border: 1px solid #dbeafe; }
+.skill-chip:hover { background: #dbeafe; }
+
+.primary-btn { background: var(--primary); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.secondary-btn { background: #f1f5f9; border: 1px dashed var(--primary); color: var(--primary); width: 100%; padding: 0.7rem; border-radius: 6px; cursor: pointer; margin-top: 0.5rem; }
+
+.pro-tip { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1rem; font-size: 0.8rem; margin-top: 2rem; }
+
+/* Resume Preview Side */
+.preview-pane { flex: 1; background: #64748b; padding: 3rem; overflow-y: auto; display: flex; justify-content: center; }
+.resume-paper { background: #fff; width: 21cm; min-height: 29.7cm; padding: 1.5cm; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); }
+
+/* Internal Resume Styling */
+.resume-header { text-align: center; border-bottom: 2px solid #334155; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+.resume-header h1 { font-family: 'Merriweather', serif; font-size: 2.2rem; margin-bottom: 0.4rem; }
+.contact-line { font-size: 0.85rem; color: #64748b; }
+
+.resume-section { margin-bottom: 1.5rem; }
+.section-label { font-family: 'Inter', sans-serif; text-transform: uppercase; font-size: 0.85rem; color: var(--primary); border-bottom: 1px solid #e2e8f0; padding-bottom: 3px; margin-bottom: 8px; }
+#out-summary, #out-skills { font-size: 0.95rem; line-height: 1.5; font-family: 'Merriweather', serif; }
+
+.project-item { margin-bottom: 1rem; }
+.project-title { font-weight: 700; font-family: 'Merriweather', serif; }
+.project-desc { font-size: 0.9rem; color: #475569; }
+/* Template Picker UI */
+.template-grid {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.template-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: transform 0.2s;
+}
+
+.template-option:hover { transform: scale(1.1); }
+.template-option.active { border-color: #000; }
+
+/* THEMES FOR THE RESUME PAPER */
+
+/* 1. Dark Modern Theme */
+.resume-paper.theme-dark .section-label {
+    color: #1e293b;
+    border-bottom: 2px solid #1e293b;
+}
+.resume-paper.theme-dark .resume-header {
+    background: #1e293b;
+    color: white;
+    padding: 2rem;
+    margin: -1.5cm -1.5cm 1.5rem -1.5cm; /* Pulls header to edges of paper */
+}
+.resume-paper.theme-dark .contact-line { color: #cbd5e1; }
+
+/* 2. Professional Green Theme */
+.resume-paper.theme-green .section-label {
+    color: #059669;
+    border-bottom: 1px solid #059669;
+}
+.resume-paper.theme-green .resume-header h1 { color: #064e3b; }
+
+/* 3. Elegant Purple Theme */
+.resume-paper.theme-purple .section-label {
+    color: #7c3aed;
+}
+.resume-paper.theme-purple .resume-header {
+    border-bottom: 4px double #7c3aed;
+}
+
+/* 4. Default Blue (Already handled, but adding for consistency) */
+.resume-paper.theme-blue .section-label {
+    color: #2563eb;
+}
